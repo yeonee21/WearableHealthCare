@@ -14,3 +14,4 @@ Covid19 virus infection prediction program using wearable device
 
 
 ## 프로그램 실행 결과에 대한 설명
+
