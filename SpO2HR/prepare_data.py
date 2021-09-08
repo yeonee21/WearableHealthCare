@@ -14,6 +14,7 @@ for fname in list:
     data =pd.concat([data, df], ignore_index=True)
 
 data = data[0::60] # 1분 간격으로 샘플링
+data.reset_index(drop=True)
 
 base_dir = './FinalData'
 if not os.path.exists(base_dir):
