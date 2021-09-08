@@ -1,11 +1,8 @@
 import numpy as np
 
-import prediction
+from prediction import trainPredict, testPredict
 
-trainPredict = prediction.trainPredict
-testPredict = prediction.testPredict
-
-Prediction = np.concatenate(trainPredict, testPredict)
+Prediction = testPredict
 
 AverageHR = np.mean(Prediction[:, 0])
 AverageSPO2 = np.mean(Prediction[:, 1])
