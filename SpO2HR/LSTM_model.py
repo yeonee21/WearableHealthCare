@@ -14,10 +14,11 @@ x_train = get_data.x_train
 y_train = get_data.y_train
 
 model = Sequential()
-model.add(LSTM(units=20, return_sequences=True, input_shape=(x_train.shape[1], x_train.shape[2])))
-model.add(LSTM(units=20, return_sequences=True))
+model.add(LSTM(units=30, return_sequences=True, input_shape=(x_train.shape[1], x_train.shape[2])))
 model.add(Dropout(0.2))
-model.add(LSTM(units=20, return_sequences=False))
+model.add(LSTM(units=30, return_sequences=True))
+model.add(Dropout(0.2))
+model.add(LSTM(units=30, return_sequences=False))
 model.add(Dense(n_future*y_train.shape[2]))
 model.add(Reshape([n_future, y_train.shape[2]]))
 

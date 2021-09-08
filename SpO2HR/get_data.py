@@ -15,14 +15,14 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 scaled_data = scaler.fit_transform(dataset.values.reshape(-1, 2))
 
 # Split train/test data
-train_dataset = numpy.array(scaled_data[:600]) #600분=10시간
-test_dataset = numpy.array(scaled_data[600:]) #120분=2시간
+train_dataset = numpy.array(scaled_data[:480])
+test_dataset = numpy.array(scaled_data[480:])
 
 # train dataset
 x_train = []
 y_train = []
 
-n_past = 29  # 몇 분을 보고 예측할 것인지
+n_past = 120  # 몇 분을 보고 예측할 것인지
 n_future = 1  # 1분 뒤의 데이터를 예측
 
 for i in range(n_past, len(train_dataset)-n_future+1):

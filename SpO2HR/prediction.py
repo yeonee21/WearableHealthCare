@@ -5,7 +5,6 @@ from tensorflow.keras.models import load_model
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 import get_data
-import LSTM_model
 
 n_future = get_data.n_future
 n_past = get_data.n_past
@@ -48,21 +47,21 @@ SPO2testScore = math.sqrt(mean_squared_error(y_test[:, 1], testPredict[:, 1]))
 print('SPO2 Test Score: %.2f RMSE' % (SPO2testScore))
 
 # Plot Predictions
-a_axis = np.arange(0, len(y_train))
-b_axis = np.arange(len(y_train), len(y_train)+len(y_test))
+a_axis = np.arange(n_past, len(y_train)+n_past)
+b_axis = np.arange(len(y_train)+2*n_past, len(y_train)+len(y_test)+2*n_past)
 
 plt.figure(figsize=(16,10))
 plt.subplot(211)
-plt.plot(dataset[:, 0], color='black', alpha=0.7, label='Real')
+plt.plot(dataset[:, 0], color='orange', alpha=0.7, label='Real')
 plt.plot(a_axis, trainPredict[:, 0], color='green', label='train predict')
-plt.plot(b_axis, testPredict[:, 0], color='orange', label='test predict')
+plt.plot(b_axis, testPredict[:, 0], color='red', label='test predict')
 plt.title('Heart Rate LSTM')
 plt.legend()
 
 plt.subplot(212)
-plt.plot(dataset[:, 1], color='black', alpha=0.7, label='Real')
+plt.plot(dataset[:, 1], color='orange', alpha=0.7, label='Real')
 plt.plot(a_axis, trainPredict[:, 1], color='green', label='train predict')
-plt.plot(b_axis, testPredict[:, 1], color='orange', label='test predict')
+plt.plot(b_axis, testPredict[:, 1], color='red', label='test predict')
 plt.title('SPO2 LSTM')
 plt.legend()
 
