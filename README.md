@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 프로그램 명칭(국문)
 웨어러블 기기를 이용한 코로나 19 바이러스 감염 여부 예측 프로그램
 
@@ -15,6 +14,4 @@ Covid19 virus infection prediction program using wearable device
 
 
 ## 프로그램 실행 결과에 대한 설명
-=======
-# WearableHealthCare
->>>>>>> 9ac0bd815c7dcc71f63aa98061a84930466e1bc2
+
