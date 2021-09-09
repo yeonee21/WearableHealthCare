@@ -9,31 +9,31 @@ import sys
 
 sys.setrecursionlimit(10000)
 
-#데이터 읽기
+#read data
 symptom = pd.read_csv("covid-19 symptoms dataset.csv")
 print(symptom.head())
 
-#사용 변수 지정
+#feature/ target data
 feature_columns = symptom.columns.difference(["infectionProb"])
 X = symptom[feature_columns]
 y = symptom["infectionProb"]
 
-#training set/ test set 나누기
+#split training set/ test set 
 X_train, X_test, y_train, y_test = train_test_split(X, y,  train_size=0.7, test_size=0.3, random_state = 123)
 print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
 
-#로지스틱회귀분석
+#Logistic Regression
 model = sm.Logit(y_train, X_train)
 results = model.fit(model = "newton")
 
-#회귀계수 확인
+#R
 cof = np.exp(results.params)
 print(cof)
 
 
 y_pred = results.predict(X_test)
 
-#인계값 함수
+#인계값
 def cut_off(y, threshold):
     Y = y.copy()
     Y[Y > threshold] = 1
@@ -44,7 +44,7 @@ def cut_off(y, threshold):
 Y_pred = cut_off(y_pred, 0.478)
 
 
-#ACC값 구하는 함수
+#ACC
 def acc(cfmat):
     return (cfmat[0, 0] + cfmat[1, 1]) / (cfmat[0, 0] + cfmat[1, 1] + cfmat[0, 1] + cfmat[1, 0])
 
@@ -67,18 +67,18 @@ plt.xlabel('Predicted label')
 plt.show()
 
 
-#AUC 구하기
+#AUC
 fpr, tpr, thresholds = metrics.roc_curve(y_test, y_pred, pos_label=1)
 auc(fpr, tpr)
 
 
-#RMSE 구하기
+#RMSE
 from sklearn.metrics import mean_squared_error
 rmse = np.sqrt(mean_squared_error(y_test, Y_pred))
 
 size = len(feature_columns)
 
-#가중치 구하기
+#weight
 def Weight(siz, cof):
     sum = 0
     for i in range (size):
@@ -93,7 +93,7 @@ def Weight(siz, cof):
 coe = Weight(size, cof)
 
 
-#입력 받기
+#conditiondata input
 def Input(size):
     Condition = []
     print("질문에 답하세요")
@@ -125,6 +125,7 @@ def Input(size):
 
 Condition = Input(size)
 
+# calculate score
 def Calculate(size, coe, Condition):
     score = 0
     if Condition[0] > 37.5:
