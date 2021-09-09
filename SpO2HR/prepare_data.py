@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import natsort
 
-data_dir = './data'
+data_dir = 'SpO2HR/data'
 data = pd.DataFrame()
 list = os.listdir(data_dir)
 list = [file for file in list if file.endswith(".csv")]

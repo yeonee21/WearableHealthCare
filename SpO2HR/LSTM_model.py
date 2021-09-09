@@ -1,5 +1,5 @@
 
-import get_data
+import SpO2HR.get_data as get_data
 import os
 
 import tensorflow as tf
@@ -25,7 +25,7 @@ model.add(Reshape([n_future, y_train.shape[2]]))
 model.compile(optimizer='adam', loss='mse')
 model.summary()
 
-checkpoint_path = "./log/cp.ckpt"
+checkpoint_path = "SpO2HR/log/cp.ckpt"
 checkpoint_dir = os.path.dirname(checkpoint_path)
 cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  save_weights_only=True,

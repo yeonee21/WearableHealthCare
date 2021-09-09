@@ -10,7 +10,7 @@ import sys
 sys.setrecursionlimit(10000)
 
 #read data
-symptom = pd.read_csv("covid-19 symptoms dataset.csv")
+symptom = pd.read_csv("Regression_COVID19Symptoms/covid-19 symptoms dataset.csv")
 print(symptom.head())
 
 #feature/ target data
@@ -145,3 +145,5 @@ def Calculate(size, coe, Condition):
     return score
 
 print(Calculate(size, coe, Condition))
+
+COVID_SymptomsScore = Calculate(size, coe, Condition)

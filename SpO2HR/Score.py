@@ -1,6 +1,6 @@
 import numpy as np
 
-from prediction import trainPredict, testPredict
+from SpO2HR.prediction import trainPredict, testPredict
 
 Prediction = testPredict  # 웨어러블 기기에서 추출한 데이터로 예측.
 

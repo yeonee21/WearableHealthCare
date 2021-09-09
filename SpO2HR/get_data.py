@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 np.random.seed(7)
 
-dataset = pd.read_csv('./FinalData/SpO2HR.csv')
+dataset = pd.read_csv('SpO2HR/FinalData/SpO2HR.csv')
 dataset = dataset[:720] # 12시간
 dataset = dataset[['HeartRate', 'SpO2']].astype(float)
 

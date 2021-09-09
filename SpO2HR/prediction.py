@@ -4,7 +4,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
-import get_data
+import SpO2HR.get_data as get_data
 
 n_future = get_data.n_future
 n_past = get_data.n_past
@@ -18,7 +18,7 @@ y_test = get_data.y_test
 scaler = get_data.scaler
 
 # load model
-model = load_model('HR_SPO2_PredictionModel.h5')
+model = load_model('SPO2HR/HR_SPO2_PredictionModel.h5')
 
 # Train Prediction
 trainPredict = model.predict(x_train)
