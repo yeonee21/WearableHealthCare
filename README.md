@@ -12,7 +12,7 @@ Covid19 virus infection prediction program using wearable device
 
 ## 프로그램 실행 방법
 1. SpO2HR 파일에 있는 코드를 실행시켜 심박수와 혈중 산소 농도 평균값 및 위험도 환산 점수를 확인한다.
-2. regressio.py파일을 실행하고 위험도 환산 점수를 확인한다.
+2. regression.py 파일을 실행하고 위험도 환산 점수를 확인한다.
 3. 둘의 위험도 환산 점수를 합친다.
 
 
