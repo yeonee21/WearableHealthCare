@@ -20,3 +20,6 @@ Covid19 virus infection prediction program using wearable device
 프로그램 실행 시 최종 결과 화면
 
 ![image](https://user-images.githubusercontent.com/88702793/132704637-8f707ce7-abc7-49d4-b4de-2877f5acecd6.png)
+
+## 본 프로그램을 어플리케이션으로 발전
+
